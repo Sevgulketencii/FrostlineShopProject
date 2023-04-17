@@ -15,6 +15,9 @@ namespace EntityLayer.Concrete
         public string DiscountImg { get; set; }
         public int DiscountRate { get; set; }
         public bool DiscountStatus { get; set; }
-        public List<Product> Products { get; set; }
+        public DateTime StartDiscount { get; set; }
+        public DateTime EndDiscount { get; set; }
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
     }
 }

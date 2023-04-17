@@ -13,7 +13,7 @@ namespace FrostlineGame.ViewComponents.AdminDashBoard
         DiscountManager discount = new DiscountManager(new EfDiscountDal());
         public IViewComponentResult Invoke()
         {
-            var values = discount.ActiveList().Take(5).ToList();
+            var values = discount.ActiveDiscountList().Take(5).ToList();
             
             return View(values);
         }

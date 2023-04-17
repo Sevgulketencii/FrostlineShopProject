@@ -9,5 +9,7 @@ namespace BusinessLayer.Abstract
 {
     public interface IDiscountService : IGenericService<Discount>
     {
+        List<Discount> ActiveDiscountList();
+        List<Discount> NotActiveList();
     }
 }

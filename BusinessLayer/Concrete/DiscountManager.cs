@@ -18,10 +18,12 @@ namespace BusinessLayer.Concrete
             _discount = discount;
         }
 
-        public List<Discount> ActiveList()
+        public List<Discount> ActiveDiscountList()
         {
-            return _discount.List();
+            return _discount.ActiveDiscountList();
         }
+
+       
 
         public void Add(Discount p)
         {
@@ -46,6 +48,11 @@ namespace BusinessLayer.Concrete
         public List<Discount> List()
         {
             return _discount.List();
+        }
+
+        public List<Discount> NotActiveList()
+        {
+            return _discount.NotActiveList();
         }
 
         public void Update(Discount p)

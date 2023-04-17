@@ -925,3 +925,9 @@ C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\bin\De
 C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\FrostlineGame.Views.pdb
 C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\FrostlineGame.csproj.CopyComplete
 C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\FrostlineGame.genruntimeconfig.cache
+C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\Razor\Areas\Admin\Views\Discount\AddDiscount.cshtml.g.cs
+C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\Razor\Areas\Admin\Views\Discount\Active.cshtml.g.cs
+C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\Razor\Areas\Admin\Views\Discount\NotActive.cshtml.g.cs
+C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
+C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\AddCategory.cshtml.g.cs
+C:\Users\Sevgül KETENCİ\Source\Repos\FrostlineShopProject\FrostlineGame\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\UpdateCategory.cshtml.g.cs

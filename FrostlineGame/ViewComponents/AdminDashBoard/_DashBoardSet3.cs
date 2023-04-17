@@ -14,7 +14,7 @@ namespace FrostlineGame.ViewComponents.AdminDashBoard
         
         public IViewComponentResult Invoke()
         {
-            ViewBag.count = discount.ActiveList().Count();
+            ViewBag.count = discount.ActiveDiscountList().Count();
             return View();
         }
     }

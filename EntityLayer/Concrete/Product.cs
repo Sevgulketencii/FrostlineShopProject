@@ -16,12 +16,10 @@ namespace EntityLayer.Concrete
         public string ProductImageCover { get; set; }
         public string ProductImage { get; set; }
         public string ProductImage2 { get; set; }
-        public string ProductPrice { get; set; }
-        public string ProductStock { get; set; }
+        public int ProductPrice { get; set; }
+        public int ProductStock { get; set; }
         public bool ProductStatus { get; set; }
-        public int DiscountID { get; set; }
         public int CategoryID { get; set; }
-        public Discount Discount { get; set; }
         public Category Category { get; set; }
     }
 }

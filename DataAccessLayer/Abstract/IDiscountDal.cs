@@ -9,5 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface IDiscountDal : IGenericDal<Discount>
     {
+        List<Discount> ActiveDiscountList();
+        List<Discount> NotActiveList();
     }
 }

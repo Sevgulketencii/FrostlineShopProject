@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230415172246_mig_1")]
-    partial class mig_1
+    [Migration("20230417144033_mig_2")]
+    partial class mig_2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,6 +90,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("ContactName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("ContactStatus")
+                        .HasColumnType("bit");
+
                     b.HasKey("ContactID");
 
                     b.ToTable("ContactDbSet");
@@ -101,6 +104,9 @@ namespace DataAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
 
                     b.Property<string>("DiscountImg")
                         .HasColumnType("nvarchar(max)");
@@ -115,6 +121,8 @@ namespace DataAccessLayer.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("DiscountID");
+
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("DiscountDbSet");
                 });
@@ -156,9 +164,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
-                    b.Property<int>("DiscountID")
-                        .HasColumnType("int");
-
                     b.Property<string>("ProductDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -174,20 +179,18 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProductPrice")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ProductPrice")
+                        .HasColumnType("int");
 
                     b.Property<bool>("ProductStatus")
                         .HasColumnType("bit");
 
-                    b.Property<string>("ProductStock")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ProductStock")
+                        .HasColumnType("int");
 
                     b.HasKey("ProductID");
 
                     b.HasIndex("CategoryID");
-
-                    b.HasIndex("DiscountID");
 
                     b.ToTable("ProductDbSet");
                 });
@@ -210,6 +213,17 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("UserDbSet");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.Discount", b =>
+                {
+                    b.HasOne("EntityLayer.Concrete.Category", "Category")
+                        .WithMany("Discounts")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.Product", b =>
                 {
                     b.HasOne("EntityLayer.Concrete.Category", "Category")
@@ -218,24 +232,13 @@ namespace DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EntityLayer.Concrete.Discount", "Discount")
-                        .WithMany("Products")
-                        .HasForeignKey("DiscountID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Category");
-
-                    b.Navigation("Discount");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Category", b =>
                 {
-                    b.Navigation("Products");
-                });
+                    b.Navigation("Discounts");
 
-            modelBuilder.Entity("EntityLayer.Concrete.Discount", b =>
-                {
                     b.Navigation("Products");
                 });
 #pragma warning restore 612, 618

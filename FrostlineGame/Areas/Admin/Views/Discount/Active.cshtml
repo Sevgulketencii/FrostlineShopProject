@@ -1,0 +1,30 @@
+﻿@{ 
+    Layout = "_AdminLayout";
+}
+
+@model List<Discount>
+
+<div class="row row-cols-1 row-cols-md-4 g-1 mb-5" style="margin-top:15px">
+
+
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <img class="card-img-top" src="@item.DiscountImg" alt="Card image cap" />
+                <div class="card-body">
+                    <h5 class="card-title">@item.DiscountName</h5>
+                    <p class="card-text">
+                       Kampanya Oranı: % <strong>@item.DiscountRate</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+       
+    }
+
+
+
+</div>
+
+

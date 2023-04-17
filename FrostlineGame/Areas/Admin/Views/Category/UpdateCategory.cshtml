@@ -1,0 +1,29 @@
+﻿@{ Layout = "_AdminLayout"; }
+
+@model Category
+
+<div class="col-md-12" style="margin-top:20px">
+    <div class="card mb-4">
+        <h5 class="card-header">Kategori Güncelle</h5>
+        <div class="card-body">
+
+            <form asp-area="Admin" asp-controller="Category" asp-action="UpdateCategory" method="post">
+
+
+                <input type="hidden" name="CategoryID" value="@Model.CategoryID" class="form-control" />
+
+
+
+
+
+                <label class="form-label">Kategori Adı</label>
+                <input type="text" name="CategoryName" value="@Model.CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName"></span>
+
+
+                <button action="submit" style="margin-top:15px" class="btn btn-success">Güncelle</button>
+            </form>
+
+        </div>
+    </div>
+</div>

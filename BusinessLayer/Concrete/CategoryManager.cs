@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public void Add(Category p)
         {
-            throw new NotImplementedException();
+            _category.Add(p);
         }
 
         public List<Category> CategoryFilter(int id)
@@ -30,12 +30,12 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Category p)
         {
-            throw new NotImplementedException();
+            _category.Delete(p);
         }
 
         public Category GetById(int id)
         {
-            throw new NotImplementedException();
+            return _category.GetById(id);
         }
 
         public List<Category> List()
@@ -45,7 +45,8 @@ namespace BusinessLayer.Concrete
 
         public void Update(Category p)
         {
-            throw new NotImplementedException();
+            _category.Update(p);
+
         }
     }
 }

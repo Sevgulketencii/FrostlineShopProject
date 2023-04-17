@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using FrostlineGame.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace FrostlineGame.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         ProductManager product = new ProductManager(new EfProductDal());
+        CategoryManager category = new CategoryManager(new EfCategoryDal());
         
         public IActionResult Index()
         {
@@ -25,9 +27,16 @@ namespace FrostlineGame.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddProduct()
         {
-            
+            List<SelectListItem> value = (from x in category.List()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.CategoryName,
+                                              Value = x.CategoryID.ToString()
+                                          }).ToList();
+            ViewBag.dropdown = value;
             return View();
         }
+   
         [HttpPost]
         public IActionResult AddProduct(AddProductModel p)
         {
@@ -43,14 +52,14 @@ namespace FrostlineGame.Areas.Admin.Controllers
                     ProductPrice = p.ProductPrice,
                     ProductStock = p.ProductStock,
                     CategoryID = p.CategoryID,
-                    DiscountID = 2,
+                    
                     ProductStatus = true,
 
                 };
                 product.Add(newProduct);
                 return RedirectToAction("Index");
             }
-            return View();
+            return RedirectToAction("Index");
         }
 
         public IActionResult DeleteProduct(int id)

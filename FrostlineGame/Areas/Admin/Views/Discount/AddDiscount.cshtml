@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+@model AddDiscountModel
+
+<div class="col-md-12" style="margin-top:20px">
+    <div class="card mb-4">
+        <h5 class="card-header">Kampanya Ekle</h5>
+        <div class="card-body">
+
+            <form asp-area="Admin" asp-controller="Discount" asp-action="AddDiscount" method="post">
+
+                <div class="mb-3">
+
+                    <label class="form-label">Kampanya Adı</label>
+                    <input type="text" name="Name" value="" class="form-control" />
+                    <span asp-validation-for="Name"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Kampanya Resim</label>
+                    <input type="text" name="Image" value="" class="form-control" />
+                    <span asp-validation-for="Image"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Kampanya Oranı</label>
+                    <input type="text" name="Rate" value="" class="form-control" />
+                    <span asp-validation-for="Rate"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Kampanya Oranı</label>
+                    <input type="date" name="Start" value="" class="form-control" />
+                    <span asp-validation-for="Start"></span>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Kampanya Oranı</label>
+                    <input type="date" name="End" value="" class="form-control" />
+                    <span asp-validation-for="End"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Hangi Kategori</label>
+                    <input type="text" name="CategoryDiscount" value="" class="form-control" />
+                    <span asp-validation-for="CategoryDiscount"></span>
+                </div>
+
+
+
+                <button action="submit" style="margin-top:15px" class="btn btn-success">Ekle</button>
+            </form>
+
+        </div>
+    </div>
+</div>
