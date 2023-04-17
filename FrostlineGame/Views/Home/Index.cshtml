@@ -1,0 +1,26 @@
+﻿@{ Layout = "_Layout"; }
+
+
+@await Component.InvokeAsync("_Banner")
+
+@await Component.InvokeAsync("_Men", new {id = 1})
+
+@await Component.InvokeAsync("_Women", new { id = 2 })
+
+@await Component.InvokeAsync("_Kids", new { id = 3 })
+
+@await Component.InvokeAsync("_Feature")
+
+@await Component.InvokeAsync("_EndProducts")
+
+<section class="section" id="Contact">
+    <div class="subscribe">
+        <div class="container">
+            <div class="row">
+                @await Component.InvokeAsync("_Contact")
+
+                @await Component.InvokeAsync("_About")
+            </div>
+        </div>
+    </div>
+</section>

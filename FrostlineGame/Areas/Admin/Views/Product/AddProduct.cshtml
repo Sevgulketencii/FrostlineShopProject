@@ -1,0 +1,68 @@
+﻿@{ 
+    Layout = "_AdminLayout";
+}
+@model AddProductModel
+
+<div class="col-md-12" style="margin-top:20px">
+    <div class="card mb-4">
+        <h5 class="card-header">Ürün Ekle</h5>
+        <div class="card-body">
+        
+            <form asp-area="Admin" asp-controller="Product" asp-action="AddProduct" method="post">
+               
+                    
+                    <label class="form-label">Ürün Adı</label>
+                    <input type="text" name="ProductName" value="" class="form-control" />
+                    <span asp-validation-for="ProductName"></span>
+               
+
+                <div class="mb-3">
+                    <label class="form-label">Ürün Fiyat</label>
+                    <input type="text" name="ProductPrice" value="" class="form-control" />
+                    <span asp-validation-for="ProductName"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ürün Stok</label>
+                    <input type="text" name="ProductStock" value="" class="form-control" />
+                    <span asp-validation-for="ProductStock"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ürün Kategori</label>
+                    <input type="text" name="CategoryID" value="" class="form-control" />
+                    <span asp-validation-for="CategoryID"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ürün Ana Resim</label>
+                    <input type="text" name="ProductImageCover" value="" class="form-control" />
+                    <span asp-validation-for="ProductImageCover"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ürün 2.Resim</label>
+                    <input type="text" name="ProductImage" value="" class="form-control" />
+                    <span asp-validation-for="ProductImage"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Ürün 3.Resim</label>
+                    <input type="text" name="ProductImage2" value="" class="form-control" />
+                    <span asp-validation-for="ProductImage2"></span>
+                </div>
+
+                <div></div>
+
+                <div>
+                    <label class="form-label">Ürün Açıklama</label>
+                    <textarea class="form-control" name="ProductDescription" rows="3"></textarea>
+                    <span asp-validation-for="ProductDescription"></span>
+                </div>
+
+                <button action="submit" style="margin-top:15px" class="btn btn-success">Ekle</button>
+            </form>
+     
+        </div>
+    </div>
+</div>

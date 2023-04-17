@@ -1,0 +1,19 @@
+﻿@model ContactModel
+
+<div class="col-lg-8">
+    <div class="section-heading">
+        <h2>Fikirleriniz Bizim İçin Önemli</h2>
+        <span>Adınızı ve mail adresinizle birlikte fikirlerinizi bize iletebilirsiniz</span>
+    </div>
+    <form asp-controller="Contact" asp-action="Index" method="post">
+
+        <span asp-validation-for="ContactName"></span><BR />
+        <input type="text" name="ContactName" value="" placeholder="Adınız ve Soyadınız*" class="col-lg-10" /><br />
+        <span asp-validation-for="ContactMail"></span><BR />
+        <input type="text" name="ContactMail" value="" placeholder="Mail Adresiniz*" class="col-lg-10" /><br /><br />
+        <textarea name="ContactDescription" class="col-lg-10" rows="5" cols="10" placeholder="Notunuz"></textarea><br /><br />
+
+        <button action="submit" class="main-dark-button"><i class="fa fa-paper-plane"></i></button>
+
+    </form>
+</div>

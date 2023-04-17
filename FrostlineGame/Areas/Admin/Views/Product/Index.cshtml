@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model List<Product>
+
+<div class="table-responsive text-nowrap" style="margin-top:15px">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ürün ID</th>
+                <th>Ürün Adı</th>
+                <th>Ürün Kategori</th>
+                <th>Ürün Stok</th>
+                <th>Ürün Statü</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+                <th>Yayına Al</th>
+                <th>Yayından Kaldır</th>
+            </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.ProductID</strong></td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.ProductStock</td>
+                    @{if (item.ProductStatus == true)
+                        {
+                            <td><span class="badge bg-label-success me-1">@item.ProductStatus</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="badge bg-label-danger me-1">@item.ProductStatus</span></td>
+
+                        }
+                    }
+                    <td><a class="btn rounded-pill btn-warning" asp-area="Admin" asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@item.ProductID">Güncelle</a></td>
+                    <td><a class="btn rounded-pill btn-danger" asp-area="Admin" asp-controller="Product" asp-action="DeleteProduct" asp-route-id="@item.ProductID">Sil</a></td>
+                    <td><a class="btn rounded-pill btn-success" asp-area="Admin" asp-controller="Product" asp-action="ShowProduct" asp-route-id="@item.ProductID">Yayın'a Koy</a></td>
+                    <td><a class="btn rounded-pill btn-primary"asp-area="Admin" asp-controller="Product" asp-action="UnShowProduct" asp-route-id="@item.ProductID">Yayından Al</a></td>
+
+
+
+                </tr>
+            }
+
+
+
+
+
+        </tbody>
+        
+    </table>
+    <a style="margin-top:5px" class="btn rounded-pill btn-success" asp-action="AddProduct">Ekle</a>
+</div>

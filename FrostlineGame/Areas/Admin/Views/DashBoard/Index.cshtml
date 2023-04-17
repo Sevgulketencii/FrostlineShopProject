@@ -1,0 +1,21 @@
+﻿@{ 
+    Layout = "_AdminLayout";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <div class="row">
+        @await Component.InvokeAsync("_DashBoardBanner") 
+        @await Component.InvokeAsync("_DashBoardSet1") 
+        @await Component.InvokeAsync("_DashBoardSet2") 
+        @await Component.InvokeAsync("_DashBoardSet3") 
+        
+
+        </div>
+    <div class="row">
+
+        @await Component.InvokeAsync("_CateProCount")
+        @await Component.InvokeAsync("_DashBoardDiscount")
+
+       
+    </div>
+    </div>

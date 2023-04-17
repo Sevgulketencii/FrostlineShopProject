@@ -1,0 +1,39 @@
+﻿@{ 
+    Layout = "_AdminLayout";
+}
+
+@model List<Contact>
+<h1 style="margin-top:20px">Gelen İletiler</h1>
+<div class="row mb-5" style="margin-top:20px">
+   
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card">
+                <div class="card-header">@item.ContactMail</div>
+                <div class="card-body">
+                    <h5 class="card-title">@item.ContactName</h5>
+                    <p class="card-text">
+                        @item.ContactDescription
+                    </p>
+
+                    <a href="/Admin/Contact/ReadContact/@item.ContactID" class="btn btn-primary">Okundu İşaretle</a>
+                    @{
+                        if (item.ContactStatus == false)
+                        {
+                            <span style="margin-left:100px" class="badge bg-danger">Okunmadı</span>
+
+                        }
+                        else
+                        {
+                            <span style="margin-left:100px" class="badge bg-success">Okundu</span>
+
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
