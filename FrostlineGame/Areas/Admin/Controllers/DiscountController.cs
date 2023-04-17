@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using FrostlineGame.Areas.Admin.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,18 @@ namespace FrostlineGame.Areas.Admin.Controllers
     public class DiscountController : Controller
     {
         DiscountManager discount = new DiscountManager(new EfDiscountDal());
-     
+        CategoryManager category = new CategoryManager(new EfCategoryDal());
+
         [HttpGet]
         public IActionResult AddDiscount()
         {
+            List<SelectListItem> value = (from x in category.List()
+                                          select new SelectListItem
+                                          {
+                                              Text = x.CategoryName,
+                                              Value = x.CategoryID.ToString()
+                                          }).ToList();
+            ViewBag.dropdown = value;
             return View();
         }
 
@@ -38,7 +47,7 @@ namespace FrostlineGame.Areas.Admin.Controllers
                     EndDiscount=p.End
                     
                 };
-                if (newDiscount.StartDiscount <= DateTime.Now)
+                if (newDiscount.StartDiscount <= DateTime.Now && newDiscount.EndDiscount>=DateTime.Now)
                 {
                     newDiscount.DiscountStatus = true;
                 }
@@ -47,7 +56,7 @@ namespace FrostlineGame.Areas.Admin.Controllers
 
                 return RedirectToAction("Index", "DashBoard");
             }
-            return View(p);
+            return RedirectToAction("Index", "DashBoard");
         }
 
 

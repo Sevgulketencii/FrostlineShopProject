@@ -11,10 +11,28 @@ namespace FrostlineGame.ViewComponents.Default
     public class _Kids : ViewComponent
     {
         ProductManager product = new ProductManager(new EfProductDal());
-        
-        public IViewComponentResult Invoke(int id)
+        DiscountManager discount = new DiscountManager(new EfDiscountDal());
+
+        public IViewComponentResult Invoke()
         {
-            var values = product.CategoryFilter(id);
+            var value = discount.IdDiscountList(3);
+            if (value != null && value.EndDiscount >= DateTime.Now && value.EndDiscount >= DateTime.Now)
+            {
+                value.DiscountStatus = true;
+                discount.Update(value);
+                ViewBag.rate = value.DiscountRate;
+            }
+            else
+            {
+                if (value != null)
+                {
+                    value.DiscountStatus = false;
+                    discount.Update(value);
+                }
+                
+                ViewBag.rate = 0;
+            }
+            var values = product.CategoryFilter(3);
             return View(values);
         }
     }

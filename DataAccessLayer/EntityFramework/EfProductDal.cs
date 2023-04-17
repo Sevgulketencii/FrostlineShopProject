@@ -16,7 +16,9 @@ namespace DataAccessLayer.EntityFramework
         Context connect = new Context();
         public List<Product> AdminList()
         {
+            
             return connect.ProductDbSet.Include("Category").ToList();
         }
+
     }
 }

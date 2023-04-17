@@ -45,6 +45,13 @@ namespace BusinessLayer.Concrete
             return _discount.GetById(id);
         }
 
+     
+
+        public Discount IdDiscountList(int id)
+        {
+            return _discount.GetIdDiscountList(id);
+        }
+
         public List<Discount> List()
         {
             return _discount.List();

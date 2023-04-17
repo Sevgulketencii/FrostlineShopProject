@@ -30,20 +30,20 @@
                     <span asp-validation-for="Rate"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Kampanya Oranı</label>
+                    <label class="form-label">Başlangıç Tarihi</label>
                     <input type="date" name="Start" value="" class="form-control" />
                     <span asp-validation-for="Start"></span>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Kampanya Oranı</label>
+                    <label class="form-label">Bitiş Tarihi</label>
                     <input type="date" name="End" value="" class="form-control" />
                     <span asp-validation-for="End"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Hangi Kategori</label>
-                    <input type="text" name="CategoryDiscount" value="" class="form-control" />
-                    <span asp-validation-for="CategoryDiscount"></span>
+                    <label class="form-label">Kampanya Kategori</label>
+                    @Html.DropDownListFor(x => x.CategoryDiscount, (List<SelectListItem>)ViewBag.dropdown, new { @class = "form-control" }) <br />
+                    @Html.ValidationMessageFor(x => x.CategoryDiscount, "", new { @class = "text-danger" })
                 </div>
 
 

@@ -44,7 +44,7 @@ namespace FrostlineGame.Controllers
                 var useridentity = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
                 await HttpContext.SignInAsync(principal);
-                return RedirectToAction("Index", "Product",new { area="Admin" });
+                return RedirectToAction("Index", "DashBoard",new { area="Admin" });
             }
 
             return View(p);

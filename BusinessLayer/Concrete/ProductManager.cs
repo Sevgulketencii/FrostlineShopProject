@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public List<Product> CategoryFilter(int id)
         {
-            return _product.GetCategoryList(x => x.CategoryID == id);
+            return _product.GetCategoryList(x => x.CategoryID == id && x.ProductStatus==true);
         }
 
         public void Delete(Product p)

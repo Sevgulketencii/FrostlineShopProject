@@ -17,7 +17,7 @@
                 <div class="men-item-carousel">
                     <div class="owl-men-item owl-carousel">
                        @foreach (var item in Model)
-	{
+                       {
                         <div class="item">
                             <div class="thumb">
                                 <div class="hover-content">
@@ -31,7 +31,18 @@
                             </div>
                             <div class="down-content">
                                 <h4>@item.ProductName</h4>
-                                <span>@item.ProductPrice ₺</span>
+
+                                @{ if (ViewBag.rate != 0)
+                                    {
+                            <span><del>@item.ProductPrice ₺</del></span>
+                                                <span>@(item.ProductPrice = item.ProductPrice - item.ProductPrice * ViewBag.rate / 100) ₺</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@item.ProductPrice ₺</span>
+                                            }
+                                }
+
                                 <ul class="stars">
                                     <li>@*Stokta Son @item.ProductStock*@</li>
                                 </ul>

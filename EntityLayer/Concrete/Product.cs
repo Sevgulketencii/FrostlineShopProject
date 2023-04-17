@@ -17,6 +17,7 @@ namespace EntityLayer.Concrete
         public string ProductImage { get; set; }
         public string ProductImage2 { get; set; }
         public int ProductPrice { get; set; }
+        public int DiscountPrice { get; set; }
         public int ProductStock { get; set; }
         public bool ProductStatus { get; set; }
         public int CategoryID { get; set; }

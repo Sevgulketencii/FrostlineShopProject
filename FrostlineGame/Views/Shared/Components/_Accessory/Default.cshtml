@@ -1,0 +1,56 @@
+﻿@model List<Product>
+
+<section class="section" id="Accessory">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h2>Aksesuar</h2>
+                    <span>Kombinlerinizi aksesuarlarla tamamlayın.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top:45px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="kid-item-carousel">
+                    <div class="owl-kid-item owl-carousel">
+
+                        @foreach (var item in Model)
+                        {
+            <div class="item">
+                <div class="thumb">
+                    <div class="hover-content">
+                        <ul>
+
+                         
+
+                        </ul>
+                    </div>
+                    <img src="@item.ProductImageCover" alt="">
+                </div>
+                <div class="down-content" style="margin-top:15px">
+                    <h4>@item.ProductName</h4>
+
+                    @{ if (ViewBag.rate != 0)
+                        {
+        <span><del>@item.ProductPrice ₺</del></span>
+                            <span>@(item.ProductPrice = item.ProductPrice - item.ProductPrice * ViewBag.rate / 100) ₺</span> }
+                        else
+                        {
+        <span>@item.ProductPrice ₺</span> } }
+                    <ul class="stars">
+                        @*<li>stok</li>*@
+                    </ul>
+                </div>
+            </div>}
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

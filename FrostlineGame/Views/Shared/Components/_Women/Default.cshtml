@@ -19,25 +19,32 @@
 
                         @foreach (var item in Model)
                         {
-            <div class="item">
-                <div class="thumb">
-                    <div class="hover-content">
-                        <ul>
+                        <div class="item">
+                            <div class="thumb">
+                                <div class="hover-content">
+                                    <ul>
 
-                            <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
 
-                        </ul>
-                    </div>
-                    <img src="@item.ProductImageCover" alt="">
-                </div>
-                <div class="down-content">
-                    <h4>@item.ProductName</h4>
-                    <span>@item.ProductPrice ₺</span>
-                    <ul class="stars">
-                        <li>@*Stokta Son @item.ProductStock*@</li>
-                    </ul>
-                </div>
-            </div>}
+                                    </ul>
+                                </div>
+                                <img src="@item.ProductImageCover" alt="">
+                            </div>
+                            <div class="down-content">
+                                <h4>@item.ProductName</h4>
+
+                                @{ if (ViewBag.rate != 0)
+                                    {
+                        <span><del>@item.ProductPrice ₺</del></span>
+                                            <span>@(item.ProductPrice = item.ProductPrice - item.ProductPrice * ViewBag.rate / 100) ₺</span> }
+                                                            else
+                                                            {
+                                            <span>@item.ProductPrice ₺</span> } }
+                                <ul class="stars">
+                                    <li>@*Stokta Son @item.ProductStock*@</li>
+                                </ul>
+                            </div>
+                        </div>}
 
                     </div>
                 </div>
