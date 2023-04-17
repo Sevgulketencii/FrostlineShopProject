@@ -20,6 +20,7 @@ namespace FrostlineGame.Areas.Admin.Controllers
         
         public IActionResult Index()
         {
+            ViewBag.count = category.List().Count();
             var values = product.AdminList();
             return View(values);
         }
